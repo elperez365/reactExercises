@@ -11,3 +11,5 @@ class   a    extends React.Component{
         )
     }
 }
+
+export default a
