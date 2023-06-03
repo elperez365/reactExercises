@@ -5,6 +5,7 @@ import ClickTracker from './ClickTracker';
 import Counter from './Counter';
 import Hello from './Hello';
 import Welcome from './Welcome';
+import InteractiveWelcome from './InteractiveWelcome';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
      <Counter/>
      <ClickCounter/>
      <ClickTracker/>
+     <InteractiveWelcome/>
     </div>
   );
 }
