@@ -6,8 +6,7 @@ class Counter extends React.Component{
         count:this.props.init,
     }
 
-    constructor (props){
-    super (props);
+    componentDidMount(){
 
     setInterval(() => {
         this.setState({
