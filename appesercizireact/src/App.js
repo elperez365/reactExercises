@@ -1,6 +1,7 @@
 
 import './App.css';
 import ClickCounter from './ClickCounter';
+import ClickTracker from './ClickTracker';
 import Counter from './Counter';
 import Hello from './Hello';
 import Welcome from './Welcome';
@@ -12,6 +13,7 @@ function App() {
      <Welcome name="John" age={19}/>
      <Counter/>
      <ClickCounter/>
+     <ClickTracker/>
     </div>
   );
 }
