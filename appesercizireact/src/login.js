@@ -4,6 +4,7 @@ class Login extends React.Component {
     state ={
         username: "",
         password: "",
+        completed: false, 
     }
 
    
@@ -22,20 +23,38 @@ class Login extends React.Component {
         
     }
 
-    
-    
+    HandleResetState = () => {
+        const userIN = document.querySelector("#userIN")
+        const passIN = document.querySelector("#passIN")
+        const compIN = document.querySelector("#compIN")
+        userIN.value= ""
+        passIN.value= ""
+        compIN.checked= false
+        this.setState({
+            username: "",
+            password: "",
+            completed: false,         
+        })
+    }
 
+    // componentDidUpdate(){
+    //     console.log(this.state)
+    // }
 
     render() {
        
         return(
             <div>
+                <div>
+                    <button id="butt" disabled  onClick={this.props.onClick} name="submit" >Login</button>
+                    <button onClick={this.HandleResetState} >reset</button>
+                </div>
                 <form id="form" onChange={this.handleInputChange} action="">
                     <label htmlFor="username">Username</label>
-                    <input name="username" type="text" required />
+                    <input id="userIN" name="username" type="text" required />
                     <label htmlFor="password">Password</label>
-                    <input name="password" type="password" required />
-                    <button id="butt" disabled  onClick={this.props.onClick} name="submit" >Login</button>
+                    <input id="passIN" name="password" type="password" required />
+                    <input id="compIN" name="completed" type="checkbox" />
                 </form>
                 
             </div>
