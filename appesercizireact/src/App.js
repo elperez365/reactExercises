@@ -9,9 +9,17 @@ import InteractiveWelcome from "./InteractiveWelcome";
 import Login from "./login";
 
 class App extends React.Component {
-  state = {
-    isloged: false,
-  };
+    state={
+    logged:false
+  }
+
+  onLogin = (ev) =>{
+    this.setState({
+        logged:true,
+    })
+    
+    
+}
 
   render() {
     return (
@@ -28,7 +36,7 @@ class App extends React.Component {
         <hr />
         <InteractiveWelcome />
         <hr />
-        <Login/>
+        <Login onClick={this.onLogin}/>
           
       </div>
     );

@@ -3,7 +3,7 @@ import React from "react";
 class Login extends React.Component {
     state ={
         username: "",
-        password: "" 
+        password: "",
     }
 
    
@@ -16,27 +16,28 @@ class Login extends React.Component {
             [name]: value
         })
         const button= document.querySelector("#butt")
-        if (this.state.username.length > 0 && this.state.password.length > 0 ) {
+        if (this.state.username.length && this.state.password.length ) {
             button.disabled = false
         } else button.disabled = true
         
     }
 
-    onLogin = (event) =>{
-        //non capisco cosa chiede la seconda parte della consegna
-    }
-
+    
+    
 
 
     render() {
+       
         return(
             <div>
-                <form onChange={this.handleInputChange} action="">
-                    <input name="username" type="text" />
-                    <input name="password" type="password" />
-                    <button disabled id="butt" onClick={this.onLogin} name="submit" >Login</button>
-
+                <form id="form" onChange={this.handleInputChange} action="">
+                    <label htmlFor="username">Username</label>
+                    <input name="username" type="text" required />
+                    <label htmlFor="password">Password</label>
+                    <input name="password" type="password" required />
+                    <button id="butt" disabled  onClick={this.props.onClick} name="submit" >Login</button>
                 </form>
+                
             </div>
         )
     }
