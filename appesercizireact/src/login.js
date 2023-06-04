@@ -43,5 +43,5 @@ class Login extends React.Component {
     }
 }
 
- //NON HO CAPITO LA SECONDA PARTE DELLA CONSEGNA, MANCA QUALCOSA.
+
 export default Login
