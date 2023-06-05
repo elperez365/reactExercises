@@ -30,6 +30,7 @@ class Login extends React.Component {
         userIN.value= ""
         passIN.value= ""
         compIN.checked= false
+        
         this.setState({
             username: "",
             password: "",

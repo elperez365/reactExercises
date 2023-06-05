@@ -7,6 +7,7 @@ import Hello from "./Hello";
 import Welcome from "./Welcome";
 import InteractiveWelcome from "./InteractiveWelcome";
 import Login from "./login";
+import Unlogin from "./Unlogin";
 
 class App extends React.Component {
     state={
@@ -37,6 +38,8 @@ class App extends React.Component {
         <InteractiveWelcome />
         <hr />
         <Login onClick={this.onLogin}/>
+        <hr />
+        <Unlogin onSubmit={this.onLogin} />
           
       </div>
     );
