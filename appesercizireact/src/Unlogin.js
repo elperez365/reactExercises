@@ -26,11 +26,17 @@ class Unlogin extends React.Component {
         } else subB.disabled = true
 
     }
+
+    componentDidMount(){
+        const usIN = document.querySelector("#usIN");
+        usIN.focus()
+    }
+
     render(){
         return(
             <div>
                 <form onSubmit={this.props.onSubmit} action="">
-                    <label htmlFor="username">username</label>
+                    <label  htmlFor="username">username</label>
                     <input onChange={this.enableL} id="usIN" name="username" type="text" />
                     <label htmlFor="password">password</label>
                     <input onChange={this.enableL} id="psIN" name="password" type="password" />

@@ -40,6 +40,7 @@ class App extends React.Component {
         <Login onClick={this.onLogin}/>
         <hr />
         <Unlogin onSubmit={this.onLogin} />
+        <hr />
           
       </div>
     );
