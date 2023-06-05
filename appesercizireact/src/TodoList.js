@@ -18,19 +18,38 @@ class TodoList extends React.Component {
 
     resetItem = () => {
         this.setState ({
-            items:[""]
+            items:[]
         })
     }
 
+    removeLi = (event) =>{
+        event.preventDefault()
+
+        let toRemove=  event.target.id;
+        this.setState({
+            items: this.state.items.filter((el) => el !== toRemove)
+        })   
+        
+        
+    }
+    
+
+    
+
 
     render(){
+    
         return (
             <div>
                 <input id="txIN" type="text" />
                 <button onClick={this.addItems}>aggiungi</button>
                 <button onClick={this.resetItem} >reset</button>
-                <ul>
-                    {this.state.items.map((el)=> <li>{el}</li>)}
+                <ul id="itemss">
+                    {this.state.items.map((el)=> 
+                    <li>
+                        {el}
+                        <button id ={el} onClick={this.removeLi} >rimuovi</button>
+                        </li>)}
                 </ul>
             </div>
         )
