@@ -12,6 +12,8 @@ class TodoList extends React.Component {
         this.setState({
             items : [...this.state.items, txIN.value]
         })
+
+        txIN.value = "";
     }
 
 
