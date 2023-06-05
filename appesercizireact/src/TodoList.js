@@ -33,18 +33,13 @@ class TodoList extends React.Component {
     
 
     render(){
-    
         return (
             <div>
                 <input id="txIN" type="text" />
                 <button onClick={this.addItems}>aggiungi</button>
                 <button onClick={this.resetItem} >reset</button>
-                <ul id="itemss">
-                    {this.state.items.map((el)=> 
-                    <li>
-                        {el}
-                        <button id ={el} onClick={this.removeLi} >rimuovi</button>
-                        </li>)}
+                <ul >
+                    {this.props.render(this.state.items,this.removeLi)}
                 </ul>
             </div>
         )
@@ -52,3 +47,5 @@ class TodoList extends React.Component {
 }
 
 export default TodoList
+
+

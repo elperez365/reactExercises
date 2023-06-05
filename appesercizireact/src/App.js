@@ -42,7 +42,17 @@ class App extends React.Component {
         <hr />
         <Unlogin onSubmit={this.onLogin} />
         <hr />
-        <TodoList/>
+        <TodoList
+        render= {(items,removeLi)=>{
+          
+          return (
+            <div>
+            {items.map((el)=> <li> {el}<button id ={el} onClick={removeLi} >rimuovi</button></li>)}
+            </div>
+          )
+
+        }}
+          />
       </div>
     );
   }
