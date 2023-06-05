@@ -16,12 +16,19 @@ class TodoList extends React.Component {
         txIN.value = "";
     }
 
+    resetItem = () => {
+        this.setState ({
+            items:[""]
+        })
+    }
+
 
     render(){
         return (
             <div>
                 <input id="txIN" type="text" />
                 <button onClick={this.addItems}>aggiungi</button>
+                <button onClick={this.resetItem} >reset</button>
                 <ul>
                     {this.state.items.map((el)=> <li>{el}</li>)}
                 </ul>
