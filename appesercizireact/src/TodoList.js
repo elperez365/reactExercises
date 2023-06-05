@@ -29,13 +29,8 @@ class TodoList extends React.Component {
         this.setState({
             items: this.state.items.filter((el) => el !== toRemove)
         })   
-        
-        
     }
     
-
-    
-
 
     render(){
     
