@@ -13,20 +13,33 @@ import LanguageContext from "./LanguageContext";
 
 class App extends React.Component {
     state={
-    logged:false
+    logged:false,
+    language:"en",
   }
 
   onLogin = (ev) =>{
     this.setState({
         logged:true,
     })
-    
-    
+}
+
+handleLanguageChange= (event) => {
+  this.setState({
+    language:event.target.value
+  })
 }
 
   render() {
     return (
       <div className="App">
+        
+          <select value={this.state.language} onChange={this.handleLanguageChange}>
+            <option value="en">ENGLISH</option>
+            <option value="it">ITALIANO</option>
+          </select>
+          <LanguageContext.Provider value={this.state.language}>
+            <DisplayLanguage/>
+          </LanguageContext.Provider>
         <Hello />
         <hr />
         <Welcome name="John" age={19} />
@@ -54,9 +67,9 @@ class App extends React.Component {
 
         }}
           />
-          <LanguageContext.Provider>
+          
             
-          </LanguageContext.Provider>
+          
       </div>
     );
   }
