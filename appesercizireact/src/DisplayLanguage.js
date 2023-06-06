@@ -21,7 +21,7 @@ render(){
             {(Language) => {
                 return (
                     <h1>
-                        {Strings[Language].LANG_SELECTED} {Language=="it"?<span>Italiano</span>:<span>Inglese</span>}
+                        {Strings[Language].LANG_SELECTED} {Language=="it"?<span>Italiano</span>:<span>English</span>}
                     </h1>
                 )
             }}
