@@ -10,6 +10,7 @@ import Login from "./login";
 import Unlogin from "./Unlogin";
 import TodoList from "./TodoList";
 import LanguageContext from "./LanguageContext";
+import DisplayLanguage from "./DisplayLanguage";
 
 class App extends React.Component {
     state={
