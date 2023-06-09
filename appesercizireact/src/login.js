@@ -1,4 +1,5 @@
 import React from "react";
+import { createRef } from "react";
 
 class Login extends React.Component {
     state ={
@@ -23,23 +24,17 @@ class Login extends React.Component {
         
     }
 
-    HandleResetState = () => {
-        const userIN = document.querySelector("#userIN")
-        const passIN = document.querySelector("#passIN")
-        const compIN = document.querySelector("#compIN")
-        userIN.value= ""
-        passIN.value= ""
-        compIN.checked= false
-        this.setState({
-            username: "",
-            password: "",
-            completed: false,         
-        })
-    }
+    _formRef=createRef();
 
-    // componentDidUpdate(){
-    //     console.log(this.state)
-    // }
+    HandleResetState = () => {
+            this._formRef.current[0].value="";
+            this._formRef.current[1].value="";
+            this._formRef.current[2].checked=false;
+            
+        }
+    
+
+    
 
     render() {
        
@@ -49,7 +44,7 @@ class Login extends React.Component {
                     <button id="butt" disabled  onClick={this.props.onClick} name="submit" >Login</button>
                     <button onClick={this.HandleResetState} >reset</button>
                 </div>
-                <form id="form" onChange={this.handleInputChange} action="">
+                <form ref= {this._formRef} id="form" onChange={this.handleInputChange} action="">
                     <label htmlFor="username">Username</label>
                     <input id="userIN" name="username" type="text" required />
                     <label htmlFor="password">Password</label>
