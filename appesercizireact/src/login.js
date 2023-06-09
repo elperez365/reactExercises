@@ -4,6 +4,7 @@ class Login extends React.Component {
     state ={
         username: "",
         password: "",
+        disabled: true,
     }
 
    
@@ -15,10 +16,14 @@ class Login extends React.Component {
         this.setState ({
             [name]: value
         })
-        const button= document.querySelector("#butt")
+        
         if (this.state.username.length && this.state.password.length ) {
-            button.disabled = false
-        } else button.disabled = true
+            this.setState({
+                disabled:false
+            })
+        } else this.setState({
+            disabled:true
+        })
         
     }
 
@@ -35,7 +40,7 @@ class Login extends React.Component {
                     <input name="username" type="text" required />
                     <label htmlFor="password">Password</label>
                     <input name="password" type="password" required />
-                    <button id="butt" disabled  onClick={this.props.onClick} name="submit" >Login</button>
+                    <button id="butt" disabled={this.state.disabled}  onClick={this.props.onClick} name="submit" >Login</button>
                 </form>
                 
             </div>
