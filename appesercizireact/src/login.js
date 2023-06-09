@@ -30,7 +30,7 @@ class Login extends React.Component {
             this._formRef.current[0].value="";
             this._formRef.current[1].value="";
             this._formRef.current[2].checked=false;
-            
+            console.log (this._formRef)
         }
     
 
