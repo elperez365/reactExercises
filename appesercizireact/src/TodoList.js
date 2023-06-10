@@ -25,9 +25,11 @@ class TodoList extends React.Component {
     removeLi = (event) =>{
         event.preventDefault()
 
-        let toRemove=  event.target.id;
+        let idtoRemove=  event.target.id;
+        this.state.items.splice(idtoRemove,1);
+
         this.setState({
-            items: this.state.items.filter((el) => el !== toRemove)
+            items: this.state.items
         })   
     }
     
@@ -40,10 +42,10 @@ class TodoList extends React.Component {
                 <button onClick={this.addItems}>aggiungi</button>
                 <button onClick={this.resetItem} >reset</button>
                 <ul id="itemss">
-                    {this.state.items.map((el)=> 
+                    {this.state.items.map((el, index)=> 
                     <li>
                         {el}
-                        <button id ={el} onClick={this.removeLi} >rimuovi</button>
+                        <button id ={index} onClick={this.removeLi} >rimuovi</button>
                         </li>)}
                 </ul>
             </div>
