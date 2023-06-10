@@ -21,7 +21,7 @@ class TodoList extends React.Component {
     render(){
         return (
             <div>
-                <input ref={this.inRef} id="txIN" type="text" />
+                <input ref={this.inRef} type="text" />
                 <button onClick={this.addItems}>aggiungi</button>
                 <ul>
                     {this.state.items.map((el)=> <li>{el}</li>)}
