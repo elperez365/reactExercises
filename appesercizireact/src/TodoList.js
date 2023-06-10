@@ -1,26 +1,40 @@
-import React from "react";
+import React, { createRef } from "react";
+
+
+
+
 
 class TodoList extends React.Component {
     state= {
-        items : ["ciao"]
+        items : ["ciao"],
+        input: ""
+    }
+
+    inRef=createRef()
+
+    handleInputChange =() =>{
+        this.setState({
+            input:this.inRef.current.value
+        })
     }
 
     addItems = () => {
-        const txIN = document.querySelector("#txIN");
+        let txIN = this.inRef.current;
 
        
         this.setState({
-            items : [...this.state.items, txIN.value]
+            items : [...this.state.items, txIN.value],
+            input: "",
         })
 
-        txIN.value = "";
+        
     }
 
 
     render(){
         return (
             <div>
-                <input id="txIN" type="text" />
+                <input value= {this.state.input} onChange={this.handleInputChange} ref={this.inRef} type="text" />
                 <button onClick={this.addItems}>aggiungi</button>
                 <ul>
                     {this.state.items.map((el)=> <li>{el}</li>)}
