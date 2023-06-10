@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 
 class Unlogin extends React.Component {
 
@@ -27,9 +27,10 @@ class Unlogin extends React.Component {
 
     }
 
+    inRef = createRef()
     componentDidMount(){
-        const usIN = document.querySelector("#usIN");
-        usIN.focus()
+        const usIN = this.inRef.current;
+        usIN.autofocus = true;
     }
 
     render(){
@@ -37,7 +38,7 @@ class Unlogin extends React.Component {
             <div>
                 <form onSubmit={this.props.onSubmit} action="">
                     <label  htmlFor="username">username</label>
-                    <input onChange={this.enableL} id="usIN" name="username" type="text" />
+                    <input ref={this.inRef} onChange={this.enableL} id="usIN" name="username" type="text" />
                     <label htmlFor="password">password</label>
                     <input onChange={this.enableL} id="psIN" name="password" type="password" />
                     <label htmlFor="completed">completed</label>
