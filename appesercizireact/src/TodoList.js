@@ -1,12 +1,15 @@
-import React from "react";
+import React, { createRef } from "react";
 
 class TodoList extends React.Component {
     state= {
         items : ["ciao"]
+
     }
 
+    inRef=createRef()
+
     addItems = () => {
-        const txIN = document.querySelector("#txIN");
+        const txIN = this.inRef.current;
 
        
         this.setState({
@@ -18,7 +21,7 @@ class TodoList extends React.Component {
     render(){
         return (
             <div>
-                <input id="txIN" type="text" />
+                <input ref={this.inRef} id="txIN" type="text" />
                 <button onClick={this.addItems}>aggiungi</button>
                 <ul>
                     {this.state.items.map((el)=> <li>{el}</li>)}
