@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import ClickCounter from "./ClickCounter";
 import ClickTracker from "./ClickTracker";
@@ -10,20 +10,20 @@ import Login from "./login";
 import Unlogin from "./Unlogin";
 import TodoList from "./TodoList";
 
-class App extends React.Component {
-    state={
-    logged:false
-  }
-
-  onLogin = (ev) =>{
-    this.setState({
-        logged:true,
-    })
+function App() {
+  const [logged, setLogged] = useState(false)
     
+
+  const onLogin = (ev) =>{
+    setLogged(true)
     
 }
 
-  render() {
+  const handleCounterChange = (counter) => {
+    console.log("counter è aggiornato",counter)
+  }
+
+  
     return (
       <div className="App">
         <Hello />
@@ -32,15 +32,15 @@ class App extends React.Component {
         <hr />
         <Counter />
         <hr />
-        <ClickCounter />
+        <ClickCounter onCounterChange={handleCounterChange} />
         <hr />
         <ClickTracker />
         <hr />
         <InteractiveWelcome />
         <hr />
-        <Login onClick={this.onLogin}/>
+        <Login onClick={onLogin}/>
         <hr />
-        <Unlogin onSubmit={this.onLogin} />
+        <Unlogin onSubmit={onLogin} />
         <hr />
         <TodoList
         render= {(items,removeLi)=>{
@@ -56,6 +56,6 @@ class App extends React.Component {
       </div>
     );
   }
-}
+
 
 export default App;
