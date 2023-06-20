@@ -12,6 +12,7 @@ import TodoList from "./TodoList";
 import GithubUser from "./GithubUser";
 import GithubUserList from "./Githubserist";
 import Cardetails from "./CarDetails";
+import FilteredList from "./FilteredList";
 
 function App() {
   const [logged, setLogged] = useState(false)
@@ -62,6 +63,10 @@ function App() {
         <GithubUserList/>
         <hr/>
         <Cardetails/>
+        <hr/>
+        <FilteredList people={[
+          {id:1, name:"Peppe",age:17,},{id:2, name:"Pippo",age:19,}
+        ]}/>
       </div>
     );
   }
