@@ -35,7 +35,7 @@ function App() {
           <Route path="/counter" element={<Counter/>}/>
         </Routes>
 
-        <Hello />
+        {/* <Hello />
         <hr />
         <Welcome name="John" age={19} />
         <hr />
@@ -69,7 +69,7 @@ function App() {
         <hr/>
         <FilteredList people={[
           {id:1, name:"Peppe",age:17,},{id:2, name:"Pippo",age:19,}
-        ]}/>
+        ]}/> */}
       </div>
     );
   }
