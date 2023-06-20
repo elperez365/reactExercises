@@ -15,6 +15,7 @@ import Cardetails from "./CarDetails";
 import FilteredList from "./FilteredList";
 import { Route, Routes } from "react-router-dom";
 import ShowGithubUser from "./ShowGithubUser";
+import Nav from "./Nav";
 
 function App() {
   const [logged, setLogged] = useState(false)
@@ -35,13 +36,14 @@ function App() {
         <Routes>
           <Route path="/counter" element={<Counter/>}/>
           <Route path="/users/:username" element={<ShowGithubUser/>} />
+          <Route path="/" element={<Nav/>}/>
         </Routes>
-
-        {/* <Hello />
+        
+        <Hello />
         <hr />
         <Welcome name="John" age={19} />
         <hr />
-        <ClickCounter onCounterChange={handleCounterChange} />
+        {/* <ClickCounter onCounterChange={handleCounterChange} />
         <hr />
         <ClickTracker />
         <hr />

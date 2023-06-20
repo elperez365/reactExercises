@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 function ShowGithubUser(){
@@ -15,6 +15,7 @@ function ShowGithubUser(){
         <div>
             <h1>{fetchData.login}</h1>
             <img src={fetchData.avatar_url} alt="" />
+            <Link to="/">torna alla Home</Link>
         </div>
     )
 }
