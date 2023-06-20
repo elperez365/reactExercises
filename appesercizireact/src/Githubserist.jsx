@@ -1,24 +1,21 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 
 function GithubUserList (){
-    const [list,Setlist] = useState(["user1"])
+    const [nameG,SetnameG] = useState()
 
-    let handleSubmitForm = (event) => {
-        event.preventDefault()
-        console.log (event)
-        Setlist([...list,event.target[0].value])
+    let handleNameG = (event)=>{
+        SetnameG(event.target.value)
+        
     }
-
     return(
         <div>
-            <form onSubmit={handleSubmitForm}>
-                <input type="text" />
-                <input type="submit" />
+            <form action="">
+                <label htmlFor="nameG">Inserisci il nome Github</label>
+                <input value={nameG} onChange={handleNameG} name="nameG" type="text" />
             </form>
-            <ul>
-                {list.map((el)=> <li>{el}</li> )}
-            </ul>
+            <Link style={{background:"yellow"}} to={`/users/${nameG}`}>CERCA</Link>
         </div>
     )
 }
