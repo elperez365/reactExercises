@@ -10,6 +10,7 @@ import Login from "./login";
 import Unlogin from "./Unlogin";
 import TodoList from "./TodoList";
 import GithubUser from "./GithubUser";
+import GithubUserList from "./Githubserist";
 
 function App() {
   const [logged, setLogged] = useState(false)
@@ -56,6 +57,8 @@ function App() {
           />
         <hr/>
         <GithubUser/>
+        <hr/>
+        <GithubUserList/>
       </div>
     );
   }

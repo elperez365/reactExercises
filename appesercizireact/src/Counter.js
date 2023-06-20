@@ -11,7 +11,7 @@ function Counter ({init=0,incr=2,intervall=1000}){
         setInterval(() => {
             setCount(count + incr)
         }, intervall)
-
+        
          return () => {
             setInterval(()=>
             clearInterval(setCount))
