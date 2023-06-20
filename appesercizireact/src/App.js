@@ -38,7 +38,9 @@ function App() {
           <Route path="/users/:username" element={<ShowGithubUser/>} />
           <Route path="/" element={<Nav/>}/>
           <Route path="/*" element={<h1>Page Not Found</h1>}/>
-          <Route path="/list" element={<GithubUserList/>}/>
+          <Route path="/users" element={<GithubUserList/>}>
+            <Route index element={ <h1>Inserisci il nome github</h1> }/>
+          </Route>
           
         </Routes>
         
