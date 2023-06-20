@@ -14,6 +14,7 @@ import GithubUserList from "./Githubserist";
 import Cardetails from "./CarDetails";
 import FilteredList from "./FilteredList";
 import { Route, Routes } from "react-router-dom";
+import ShowGithubUser from "./ShowGithubUser";
 
 function App() {
   const [logged, setLogged] = useState(false)
@@ -33,6 +34,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/counter" element={<Counter/>}/>
+          <Route path="/users/:username" element={<ShowGithubUser/>} />
         </Routes>
 
         {/* <Hello />
