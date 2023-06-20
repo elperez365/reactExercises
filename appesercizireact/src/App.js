@@ -13,6 +13,7 @@ import GithubUser from "./GithubUser";
 import GithubUserList from "./Githubserist";
 import Cardetails from "./CarDetails";
 import FilteredList from "./FilteredList";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [logged, setLogged] = useState(false)
@@ -30,11 +31,13 @@ function App() {
   
     return (
       <div className="App">
+        <Routes>
+          <Route path="/counter" element={<Counter/>}/>
+        </Routes>
+
         <Hello />
         <hr />
         <Welcome name="John" age={19} />
-        <hr />
-        <Counter />
         <hr />
         <ClickCounter onCounterChange={handleCounterChange} />
         <hr />
