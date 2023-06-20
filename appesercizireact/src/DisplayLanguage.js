@@ -1,4 +1,5 @@
-import React from "react";
+
+import { useContext } from "react";
 import LanguageContext from "./LanguageContext";
 
 
@@ -13,21 +14,20 @@ const Strings ={
 
 
 
-class DisplayLanguage extends React.Component{
+function DisplayLanguage (){
+    const language=useContext(LanguageContext)
 
-render(){
     return(
-        <LanguageContext.Consumer>
-            {(Language) => {
-                return (
-                    <h1>
-                        {Strings[Language].LANG_SELECTED} {Language=="it"?<span>Italiano</span>:<span>English</span>}
-                    </h1>
-                )
-            }}
-        </LanguageContext.Consumer>
+        
+            
+         <h1>
+             {Strings[language].LANG_SELECTED} {language==="it"?<span>Italiano</span>:<span>English</span>}
+         </h1>
+            
+            
+        
     )
-}
+
 
 
 }
