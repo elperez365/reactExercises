@@ -5,6 +5,7 @@ function useGithubUser(username){
     const [loading, setLoading]=useState(false);
     const [error, setError]= useState(null);
 
+//GUARDA ANCHE IL COMPONENTE USESWR, ALCUNI ESERCIZI LI HO FATTI LI
 
     async function fetchGithubUser(username) {
         setLoading(true)
@@ -23,6 +24,8 @@ function useGithubUser(username){
             setLoading(false)
         }
     }
+
+//GUARDA ANCHE IL COMPONENTE USESWR, ALCUNI ESERCIZI LI HO FATTI LI
     useEffect(()=> {
         fetchGithubUser(username)
     },[username])
