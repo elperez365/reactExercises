@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom"
 import useSwr from "./useSwr"
 
 function ShowGithubUser(){
-    const {username="elperez365"}= useParams()
+    const {username}= useParams()
     const {data} = useSwr(username)
     
     return (
