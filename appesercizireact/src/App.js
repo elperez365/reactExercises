@@ -18,37 +18,33 @@ import ShowGithubUser from "./ShowGithubUser";
 import Nav from "./Nav";
 
 function App() {
-  const [logged, setLogged] = useState(false)
-    
+  const [logged, setLogged] = useState(false);
 
-  const onLogin = (ev) =>{
-    setLogged(true)
-    
-}
+  const onLogin = (ev) => {
+    setLogged(true);
+  };
 
   const handleCounterChange = (counter) => {
-    console.log("counter è aggiornato",counter)
-  }
+    console.log("counter è aggiornato", counter);
+  };
 
-  
-    return (
-      <div className="App">
-        <Routes>
-          <Route path="/counter" element={<Counter/>}/>
-          <Route path="/users/:username" element={<ShowGithubUser/>} />
-          <Route path="/" element={<Nav/>}/>
-          <Route path="/*" element={<h1>Page Not Found</h1>}/>
-          <Route path="/users" element={<GithubUserList/>}>
-            <Route index element={ <h1>Inserisci il nome github</h1> }/>
-          </Route>
-          
-        </Routes>
-        
-        <Hello />
-        <hr />
-        <Welcome name="John" age={19} />
-        <hr />
-        {/* <ClickCounter onCounterChange={handleCounterChange} />
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/counter" element={<Counter />} />
+        <Route path="/users/:username" element={<ShowGithubUser />} />
+        <Route path="/" element={<Nav />} />
+        <Route path="/*" element={<h1>Page Not Found</h1>} />
+        <Route path="/users" element={<GithubUserList />}>
+          <Route index element={<h1>Inserisci il nome github</h1>} />
+        </Route>
+      </Routes>
+
+      <Hello />
+      <hr />
+      <Welcome name="John" age={19} />
+      <hr />
+      {/* <ClickCounter onCounterChange={handleCounterChange} />
         <hr />
         <ClickTracker />
         <hr />
@@ -79,9 +75,8 @@ function App() {
         <FilteredList people={[
           {id:1, name:"Peppe",age:17,},{id:2, name:"Pippo",age:19,}
         ]}/> */}
-      </div>
-    );
-  }
-
+    </div>
+  );
+}
 
 export default App;
