@@ -1,20 +1,15 @@
 import { Link, useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
+
+import useSwr from "./useSwr"
 
 function ShowGithubUser(){
     const {username="elperez365"}= useParams()
-    const [fetchData, setFetchData]= useState({})
+    const {data} = useSwr(username)
     
-    useEffect(()=> {fetch(`https://api.github.com/users/${username}`)
-    .then((res)=>res.json()
-    .then((json)=>setFetchData(json)
-    ))},[username])
-
-    console.log(fetchData)
     return (
         <div>
-            <h1>{fetchData.login}</h1>
-            <img src={fetchData.avatar_url} alt="" />
+            <h1>{data.login}</h1>
+            <img src={data.avatar_url} alt="" />
             <Link to="/">torna alla Home</Link>
         </div>
     )
