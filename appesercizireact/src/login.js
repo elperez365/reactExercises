@@ -1,67 +1,77 @@
-import React from "react";
+import { useState } from "react";
 
-class Login extends React.Component {
-    state ={
-        username: "",
-        password: "",
-        completed: false, 
-    }
 
-   
+function Login ({onClick}) {
 
-    handleInputChange = (event) => {
+    const [username, setUsername] =useState("")
+    const [password, setPassword] =useState("")
+
+
+
+    let handleNameChange = (event) => {
         event.preventDefault();
-        const name = event.target.name
         const value = event.target.value
-        this.setState ({
-            [name]: value
-        })
+        
+        setUsername (value)
+        
+        
+
+
         const button= document.querySelector("#butt")
-        if (this.state.username.length && this.state.password.length ) {
+        if (username.length && password.length ) {
             button.disabled = false
         } else button.disabled = true
         
     }
 
-    HandleResetState = () => {
-        const userIN = document.querySelector("#userIN")
-        const passIN = document.querySelector("#passIN")
-        const compIN = document.querySelector("#compIN")
-        userIN.value= ""
-        passIN.value= ""
-        compIN.checked= false
+    
+    let handlePassChange = (event) => {
+        event.preventDefault();
+        const value = event.target.value
         
-        this.setState({
-            username: "",
-            password: "",
-            completed: false,         
-        })
+        setPassword (value)
+        
+        
+
+
+        const button= document.querySelector("#butt")
+        if (username.length && password.length ) {
+            button.disabled = false
+        } else button.disabled = true
+        
     }
 
-    // componentDidUpdate(){
-    //     console.log(this.state)
-    // }
+    let HandleResetState = () => {
+        const userIN = document.querySelector("#userIN")
+        const passIN = document.querySelector("#passIN")
+        userIN.value= ""
+        passIN.value= ""
+        
 
-    render() {
+        setUsername ("")
+        setPassword ("")
+        
+    }
+
+   
        
         return(
             <div>
                 <div>
-                    <button id="butt" disabled  onClick={this.props.onClick} name="submit" >Login</button>
-                    <button onClick={this.HandleResetState} >reset</button>
+                    <button id="butt" disabled  onClick={onClick} name="submit" >Login</button>
+                    <button onClick={HandleResetState} >reset</button>
                 </div>
-                <form id="form" onChange={this.handleInputChange} action="">
+                <form id="form" action="">
                     <label htmlFor="username">Username</label>
-                    <input id="userIN" name="username" type="text" required />
+                    <input id="userIN" onChange={handleNameChange} value={username} name="username" type="text" required />
                     <label htmlFor="password">Password</label>
-                    <input id="passIN" name="password" type="password" required />
-                    <input id="compIN" name="completed" type="checkbox" />
+                    <input id="passIN" onChange={handlePassChange} value={password} name="password" type="password" required />
                 </form>
                 
             </div>
         )
     }
-}
+
 
  
 export default Login

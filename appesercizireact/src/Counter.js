@@ -1,31 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CounterDisplay from "./CounterDisplay";
+import { Link } from "react-router-dom";
 
-class Counter extends React.Component{
-    state={
-        count:this.props.init,
-    }
+function Counter ({init=0,incr=2,intervall=1000}){
+    const [count,setCount]=useState(init)
 
-    componentDidMount(){
+   
 
-    setInterval(() => {
-        this.setState({
-            count: this.state.count + this.props.incr,
-        })
-    }, this.props.intervall);
-    }
+    
+    useEffect(()=>{
+        setInterval(() => {
+            setCount(count + incr)
+        }, intervall)
+        
+         return () => {
+            setInterval(()=>
+            clearInterval(setCount))
+            
+         }
+    },[])
 
-    render(){
+   
+    
+    
+
+    
         return(
-            <CounterDisplay display={this.state.count}/>
+            <div>
+                <CounterDisplay display={count}/>
+                <Link to="/">torna alla home</Link>
+            </div>
+            
         )
-    }
+    
 }
 
-Counter.defaultProps={
-    init:0,
-    incr:2,
-    intervall:1000,
-}
 
 export default Counter
